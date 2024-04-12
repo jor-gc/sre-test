@@ -9,13 +9,16 @@ stores = [
             {
             "name": "Chair",
             "price": 15.99
+            },
+            {
+            "name": "Desk",
+            "price": 79.99
             }
         ]
         
     }
 ]
 
-
-@app.get('/store') # 'http://12.7.0.0.1:5000/store'
+@app.get('/store') # 'http://127.0.0.1:5000/store'
 def get_stores():
     return {"stores": stores}
