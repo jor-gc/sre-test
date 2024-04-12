@@ -13,6 +13,10 @@ stores = [
             {
             "name": "Desk",
             "price": 79.99
+            },
+            {
+            "name": "Laptop",
+            "price": 1999.99
             }
         ]
         
