@@ -49,9 +49,7 @@ jobs:
     environment:
       name: 'dev'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
@@ -62,17 +60,10 @@ jobs:
         run: unzip release.zip
 
       
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A9E90DC6F0AE4002AE54BEAC0217EF6E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7A41A355FF624CF8A154C77DBBCA5B14 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F6965FA280F146F8973A1C7EB58A73AE }}
-
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'sreacademylab2'
           slot-name: 'dev'
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DABDCCD91D004274ACF968DE6B1DE962 }}
