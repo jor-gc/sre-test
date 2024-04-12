@@ -16,7 +16,7 @@ stores = [
             },
             {
             "name": "Laptop",
-            "price": 1999.99
+            "price": 2499.99
             }
         ]
         
